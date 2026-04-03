@@ -1,0 +1,9 @@
+[Unit]
+Description=Update Mihomo subscription and reload config
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.config/mihomo/subscription.env
+ExecStart=%h/.local/share/mihomo-user-bootstrap/scripts/update_mihomo_subscription.py

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Mihomo geodata updater daily
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1d
+Unit=mihomo-geodata-update.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Update Mihomo geodata files
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.config/mihomo/geodata.env
+ExecStart=%h/.local/share/mihomo-user-bootstrap/scripts/update_mihomo_geodata.py
