@@ -30,13 +30,6 @@ mihomo-user-bootstrap/
     mihomo-geodata-update.timer
 ```
 
-## 设计目标
-
-- 不把真实订阅链接、真实用户名、真实绝对路径提交到仓库
-- 更新 geodata 时优先继续复用当前文件，全部下载成功后再整体切换
-- 把配置、订阅缓存、geodata 都统一放进 `~/.config/mihomo/`
-- 把定时任务放进 `~/.config/systemd/user/`
-
 ## 安装前提
 
 你需要有一个可工作的 Mihomo 二进制，例如：
@@ -135,14 +128,3 @@ journalctl --user -u mihomo-subscription-update.service -n 50 --no-pager
 - 不要提交运行时生成的 `config.yaml`、`subscription.yaml`、`cache.db`
 - 不要提交真实 controller secret
 
-## GitHub 发布
-
-本地目录已经适合单独建仓库发布。
-
-如果要直接从命令行上传到 GitHub，需要本机安装并登录 GitHub CLI：
-
-```bash
-gh auth status
-```
-
-如果没有 `gh`，也可以先本地 `git init`，之后手动在 GitHub 网页创建仓库再推送。
